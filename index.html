@@ -25,8 +25,30 @@
 
     <!-- Config (load before body for immediate access) -->
     <script src="js/config.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 </head>
-<body>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <svg class="preloader-logo" viewBox="0 0 100 100" width="80" height="80">
+                <path class="preloader-logo-path" d="M15 85 L15 15 L35 15 L50 55 L65 15 L85 15 L85 85 L70 85 L70 40 L55 80 L45 80 L30 40 L30 85 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="preloader-text">Loading</div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
@@ -60,11 +82,19 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
+            <!-- Floating geometric shapes -->
+            <div class="hero-shapes">
+                <div class="hero-shape hero-shape-1"></div>
+                <div class="hero-shape hero-shape-2"></div>
+                <div class="hero-shape hero-shape-3"></div>
+                <div class="hero-shape hero-shape-4"></div>
+                <div class="hero-shape hero-shape-5"></div>
+            </div>
+
+            <!-- Grid lines background -->
+            <div class="hero-grid"></div>
+
             <div class="container">
-                <div class="hero-badge">
-                    <span class="hero-badge-dot"></span>
-                    <span>Available for new projects</span>
-                </div>
                 <h1 class="hero-title">
                     Hi, I'm <span class="highlight">Moses</span>
                 </h1>
@@ -73,14 +103,14 @@
                     I build apps focused on solving real problems. Based in NYC, crafting thoughtful software experiences.
                 </p>
                 <div class="hero-cta">
-                    <a href="#apps" class="btn btn-primary">
+                    <a href="#apps" class="btn btn-primary magnetic">
                         View My Apps
                         <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <a href="#contact" class="btn btn-secondary magnetic">Get in Touch</a>
                 </div>
             </div>
             <div class="hero-scroll">
@@ -92,10 +122,9 @@
         <!-- Apps Section -->
         <section id="apps" class="apps">
             <div class="container">
-                <div class="apps-header reveal">
+                <div class="apps-header">
                     <span class="section-label">Portfolio</span>
                     <h2 class="section-title">Apps I've Built</h2>
-                    <p class="section-subtitle">Thoughtfully designed, carefully crafted applications that make a difference.</p>
                 </div>
 
                 <div class="apps-grid" id="apps-grid">
@@ -162,6 +191,8 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

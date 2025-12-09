@@ -9,6 +9,7 @@ Mosesharding.com/
 ├── css/
 │   └── styles.css              # Main stylesheet with theme system and responsive design
 ├── js/
+│   ├── animations.js           # GSAP animations, Lenis smooth scroll, preloader
 │   ├── config.js               # Site configuration and content management
 │   └── main.js                 # Main JavaScript functionality and interactions
 ├── Documentation/
@@ -72,14 +73,28 @@ Mosesharding.com/
 - **Purpose**: Interactive functionality and dynamic content rendering
 - **Key Features**:
   - Theme switching with system preference detection
-  - Dynamic app card generation from config
+  - Dynamic app card generation from config (supports multiple screenshots)
   - Dynamic contact link generation
   - Scroll animations and reveal effects
   - Smooth scrolling navigation
   - Active navigation state management
-  - Parallax effects on app cards
   - Keyboard navigation support
   - Performance optimizations
+
+#### `js/animations.js`
+- **Purpose**: Advanced animations using GSAP and Lenis libraries
+- **Key Features**:
+  - Lenis smooth scroll initialization with GSAP integration
+  - Preloader animation with SVG path drawing
+  - Hero section parallax effects
+  - Scroll-triggered reveal animations
+  - Text split and reveal animations
+  - Parallax background effects
+  - Magnetic navigation link effects
+- **Dependencies**:
+  - GSAP (GreenSock Animation Platform)
+  - GSAP ScrollTrigger plugin
+  - Lenis smooth scroll library
 
 ### Directory-Specific Details
 
@@ -90,9 +105,10 @@ Mosesharding.com/
 - Includes animation keyframes and transitions
 
 #### `js/` Directory
+- **animations.js**: GSAP + Lenis animation system
 - **config.js**: Pure data configuration, no logic
-- **main.js**: All interactive functionality
-- No external dependencies or frameworks
+- **main.js**: Core interactive functionality and dynamic content
+- External dependencies: GSAP, ScrollTrigger, Lenis (loaded via CDN)
 - Modular function organization
 - Performance-focused with event delegation
 
@@ -109,9 +125,13 @@ graph TD
     A[index.html] --> B[css/styles.css]
     A --> C[js/config.js]
     A --> D[js/main.js]
+    A --> E[js/animations.js]
     D --> C
-    E[Google Fonts] --> A
-    F[External Images] --> D
+    E --> F[GSAP CDN]
+    E --> G[ScrollTrigger CDN]
+    E --> H[Lenis CDN]
+    I[Google Fonts] --> A
+    J[External Images] --> D
 ```
 
 ## Loading Order

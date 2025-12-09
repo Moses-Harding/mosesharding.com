@@ -66,6 +66,52 @@ This document outlines the technologies used in the Moses Harding portfolio webs
 - **LocalStorage**: Theme persistence
 - **RequestAnimationFrame**: Smooth animations
 
+## External Libraries
+
+### GSAP (GreenSock Animation Platform)
+**URL**: `https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js`
+**Purpose**: Advanced animations and scroll-triggered effects
+
+**Why GSAP**:
+- Industry-standard animation library
+- Excellent performance and optimization
+- ScrollTrigger plugin for scroll-based animations
+- Smooth, professional-quality animations
+- Extensive browser support
+- Well-documented API
+
+**Key Features Used**:
+- ScrollTrigger for scroll-based animations
+- Timeline sequencing for preloader
+- Smooth element transitions
+- Parallax effects
+
+### GSAP ScrollTrigger Plugin
+**URL**: `https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js`
+**Purpose**: Scroll-triggered animations and pinning
+
+**Key Features Used**:
+- Element reveal on scroll
+- Scroll progress tracking
+- Section-based triggers
+- Performance-optimized scroll handling
+
+### Lenis Smooth Scroll
+**URL**: `https://unpkg.com/lenis@1.1.13/dist/lenis.min.js`
+**Purpose**: Buttery smooth scrolling experience
+
+**Why Lenis**:
+- Smooth, natural scrolling feel
+- Touch device support
+- Integrates with GSAP ScrollTrigger
+- Lightweight library
+- Customizable easing
+
+**Key Features Used**:
+- Smooth scroll behavior
+- GSAP ticker integration
+- Touch gesture handling
+
 ## External Resources
 
 ### Google Fonts - Inter

@@ -18,6 +18,24 @@
 - Added: js/config.js (from previous session)
 - Initial commit of portfolio website project (3f63e13)
 
+**Animation System Overhaul:**
+- Added: GSAP + ScrollTrigger libraries via CDN for advanced animations
+- Added: Lenis smooth scroll library for buttery scrolling
+- Added: js/animations.js with preloader, parallax effects, scroll animations, magnetic nav links
+- Added: Animated preloader with "M" logo SVG path drawing animation
+- Added: Hero section with floating geometric shapes and parallax effects
+- Added: Smooth gradient mesh backgrounds throughout site
+- Updated: css/styles.css with comprehensive styling refresh including CSS variables for light/dark themes
+- Updated: index.html with preloader, scroll progress indicator, hero shapes
+- Removed: Custom cursor system (was causing interaction issues)
+- Removed: 3D card rotation effect on app cards (was too intense)
+- Removed: Magnetic hover effect from hero CTA buttons
+- Changed: App cards now use screenshots instead of videos
+- Added: Multiple screenshot frame support (up to 3 per app, arranged with rotation)
+- Changed: Background gradient from repeating radial to smooth linear gradient
+- Updated: Contact card hover from rotating border to subtle gradient pulse
+- Fixed: Contact links z-index for better clickability
+
 ---
 
 ## Entry Format

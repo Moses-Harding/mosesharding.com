@@ -57,9 +57,10 @@ function populateApps() {
     const container = document.getElementById('apps-grid');
     if (!container || typeof CONFIG === 'undefined') return;
 
-    container.innerHTML = CONFIG.apps.map(app => `
-        <article class="app-card reveal" data-app-id="${app.id}">
+    container.innerHTML = CONFIG.apps.map((app, index) => `
+        <article class="app-card" data-app-id="${app.id}" data-index="${index}">
             <div class="app-card-inner">
+                <!-- Left side: Info -->
                 <div class="app-card-content">
                     <div class="app-card-header">
                         ${app.iconUrl
@@ -71,10 +72,13 @@ function populateApps() {
                             <p class="app-subtitle">${app.tagline}</p>
                         </div>
                     </div>
+
                     <p class="app-description">${app.description}</p>
+
                     <ul class="app-features">
-                        ${app.features.map(feature => `<li>${feature}</li>`).join('')}
+                        ${app.features.slice(0, 4).map(feature => `<li>${feature}</li>`).join('')}
                     </ul>
+
                     <div class="app-cta">
                         ${app.appStoreUrl
                             ? `<a href="${app.appStoreUrl}" class="app-store-link" target="_blank" rel="noopener noreferrer">
@@ -85,24 +89,52 @@ function populateApps() {
                                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                                 </svg>
-                                Coming soon to the App Store
+                                Coming Soon
                                </span>`
                         }
                     </div>
                 </div>
+
+                <!-- Right side: Device mockups with screenshots -->
                 <div class="app-card-visuals">
-                    <div class="app-screenshots">
-                        ${app.screenshots.length > 0
-                            ? app.screenshots.map(src => `<div class="screenshot"><img src="${src}" alt="${app.name} screenshot"></div>`).join('')
-                            : `<div class="screenshot placeholder-screenshot"></div>
-                               <div class="screenshot placeholder-screenshot"></div>
-                               <div class="screenshot placeholder-screenshot"></div>`
+                    <div class="device-mockups">
+                        ${app.screenshots && app.screenshots.length > 0
+                            ? app.screenshots.slice(0, 3).map((screenshot, i) => `
+                                <div class="device-mockup device-mockup-${i + 1}">
+                                    <div class="device-frame">
+                                        <div class="device-notch"></div>
+                                        <div class="device-screen">
+                                            <img class="app-screenshot" src="${screenshot}" alt="${app.name} screenshot ${i + 1}">
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')
+                            : `<div class="device-mockup device-mockup-1">
+                                <div class="device-frame">
+                                    <div class="device-notch"></div>
+                                    <div class="device-screen">
+                                        ${app.iconUrl
+                                            ? `<div class="app-screenshot-placeholder" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+                                                 <img src="${app.iconUrl}" alt="${app.name}" class="placeholder-app-icon">
+                                               </div>`
+                                            : `<div class="app-screenshot-placeholder">
+                                                 <span>${app.iconPlaceholder}</span>
+                                               </div>`
+                                        }
+                                    </div>
+                                </div>
+                            </div>`
                         }
                     </div>
                 </div>
             </div>
         </article>
     `).join('');
+
+    // Re-initialize animations after populating
+    if (window.refreshAnimations) {
+        setTimeout(window.refreshAnimations, 100);
+    }
 }
 
 // Run on DOM ready
