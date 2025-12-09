@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:apps.apple.com)",
+      "Bash(open:*)"
+    ]
+  }
+}
